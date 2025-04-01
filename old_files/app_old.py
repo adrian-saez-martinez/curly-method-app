@@ -14,7 +14,7 @@ from io import BytesIO
 # Initialize OpenAI client
 client = OpenAI()
 
-st.title("Verificador método Curly")
+st.title("Verificador Curly")
 
 # File uploader con etiqueta personalizada
 uploaded_image = st.file_uploader("Sube una imagen de la etiqueta del producto en la que se lean los ingredientes", type=["jpg", "jpeg", "png"])
