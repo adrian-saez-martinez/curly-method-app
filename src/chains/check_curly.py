@@ -1,6 +1,14 @@
-from langchain.chat_models import init_chat_model
+from langchain_openai import ChatOpenAI
 from src.prompts.prompt_curly import curly_prompt, CurlyCheckOutput
 from src.utils.utils import image_to_base64
+
+# Initialize the LLM
+def initialize_llm():
+    return ChatOpenAI(
+        model="gpt-4o",
+        temperature=0,
+        max_tokens=2048,
+    )
 
 def analyze_product(uploaded_image):
     base64_image = image_to_base64(uploaded_image)
@@ -10,7 +18,7 @@ def analyze_product(uploaded_image):
     }
 
     # Initialize the chat model with structured output
-    llm = init_chat_model("gpt-4o", model_provider="openai")
+    llm = initialize_llm()
     structured_llm = llm.with_structured_output(CurlyCheckOutput)
 
     # Prepare messages
