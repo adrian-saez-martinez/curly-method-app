@@ -1,7 +1,7 @@
 import streamlit as st
 from src.chains.check_curly import analyze_product
 
-st.title("Verificador método Curly")
+st.title("Verificador Curly")
 
 # File uploader for image
 uploaded_image = st.file_uploader("Sube una imagen de la etiqueta del producto en la que se lean los ingredientes", type=["jpg", "jpeg", "png"])
