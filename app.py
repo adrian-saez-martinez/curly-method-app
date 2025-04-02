@@ -15,5 +15,10 @@ image_to_analyze = uploaded_image or camera_image
 if image_to_analyze and st.button("Verificar producto"):
     with st.spinner("Analizando..."):
         result = analyze_product(image_to_analyze)
-        st.subheader("✅ APTO ✅" if result.valid else "❌ NO APTO ❌")
+        if not result.product:
+            st.subheader("⚠️ IMAGEN NO VÁLIDA ⚠️")
+        elif result.valid:
+            st.subheader("✅ APTO ✅")
+        else:
+            st.subheader("❌ NO APTO ❌")
         st.write(result.analysis)
