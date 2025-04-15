@@ -4,7 +4,7 @@ import dotenv
 
 dotenv.load_dotenv()
 
-st.title("Verificador Curly")
+st.title("Verificador curly")
 
 # File uploader for image
 uploaded_image = st.file_uploader("Sube una imagen de la etiqueta del producto en la que se lean los ingredientes", type=["jpg", "jpeg", "png"])
