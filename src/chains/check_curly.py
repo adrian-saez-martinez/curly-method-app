@@ -1,6 +1,9 @@
 from langchain_openai import ChatOpenAI
 from src.prompts.prompt_curly import curly_prompt, CurlyCheckOutput
 from src.utils.utils import image_to_base64
+import dotenv
+
+dotenv.load_dotenv()
 
 # Initialize the LLM
 def initialize_llm():

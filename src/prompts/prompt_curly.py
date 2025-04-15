@@ -1,5 +1,8 @@
 from pydantic import BaseModel, Field
 from typing import List
+import dotenv
+
+dotenv.load_dotenv()
 
 class CurlyCheckOutput(BaseModel):
     """Análisis del producto en base a los ingredientes y el método curly"""

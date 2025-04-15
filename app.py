@@ -1,5 +1,8 @@
 import streamlit as st
 from src.chains.check_curly import analyze_product
+import dotenv
+
+dotenv.load_dotenv()
 
 st.title("Verificador Curly")
 
