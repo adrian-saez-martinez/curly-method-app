@@ -7,7 +7,7 @@ dotenv.load_dotenv()
 st.title("Verificador curly")
 
 # File uploader for image
-uploaded_image = st.file_uploader("Sube una imagen con la etiqueta del producto en la que se lean los ingredientes", type=["jpg", "jpeg", "png"])
+uploaded_image = st.file_uploader("Sube una imagen con la etiqueta del producto en la que see lean los ingredientes", type=["jpg", "jpeg", "png"])
 
 # Camera input for image
 camera_image = st.camera_input("O toma una foto de la etiqueta del producto")
