@@ -1,4 +1,4 @@
-# 🔠 Curly Verifier
+# 🌀 Curly Verifier
 
 Curly Verifier is an AI-powered app that helps users determine whether a hair product is suitable for the **Curly Girl Method**. By scanning the ingredient list, the app identifies disallowed substances like silicones, drying alcohols, and sulfates.
 
