@@ -44,7 +44,8 @@ def extract_text_with_ocr(image_base64):
             if hasattr(page, "markdown"):
                 extracted_text += page.markdown + "\n"
 
+    # If no text is extracted, return a default message
     if not extracted_text.strip():
-        raise ValueError("No text could be extracted from the OCR response.")
+        extracted_text = "La imagen no muestra una etiqueta de producto con ingredientes legibles."
 
     return extracted_text.strip()

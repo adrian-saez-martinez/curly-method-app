@@ -19,10 +19,6 @@ def analyze_product(uploaded_image):
         # Convert image to base64
         base64_image = image_to_base64(uploaded_image)  # Ensure this is the file-like object
 
-        # Debugging: Log the base64 string length
-        if not base64_image.strip():
-            raise ValueError("Base64 image string is empty.")
-
         # Step 1: Extract text using Mistral OCR
         extracted_text = extract_text_with_ocr(base64_image)
         if not extracted_text.strip():
