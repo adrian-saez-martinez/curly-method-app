@@ -1,6 +1,7 @@
 import base64
 import dotenv
 from mistralai import Mistral
+import os
 
 dotenv.load_dotenv()
 
@@ -23,8 +24,7 @@ def image_to_base64(image_file):
     
 def extract_text_with_ocr(image_base64):
     """Call the Mistral OCR API to extract text from the image."""
-    api_key = dotenv.get_key(".env", "MISTRAL_API_KEY")
-    client = Mistral(api_key=api_key)
+    client = Mistral(api_key=os.environ.get("MISTRAL_API_KEY"))
 
     if not image_base64.strip():
         raise ValueError("The base64 image string is empty or invalid.")
