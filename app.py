@@ -5,6 +5,11 @@ import dotenv
 
 dotenv.load_dotenv()
 
+st.set_page_config(
+    page_title="Cuidate Curly",
+    page_icon="➿",
+)
+
 st.title("Verificador curly")
 
 # File uploader for image
