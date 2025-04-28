@@ -1,17 +1,39 @@
-from langchain_openai import ChatOpenAI
+from langchain_openai import ChatOpenAI, AzureChatOpenAI
 from src.prompts.prompt_curly import curly_prompt, CurlyCheckOutput
 from src.utils.utils import image_to_base64, extract_text_with_ocr
+import os
 import dotenv
 
 dotenv.load_dotenv()
 
-# Initialize the LLM
 def initialize_llm():
-    return ChatOpenAI(
-        model="gpt-4o-mini",
-        temperature=0,
-        max_tokens=2048,
-    )
+    """Initialize the language model based on environment configuration."""
+    model_provider = os.getenv("LLM_MODEL_TEXT_GENERATION").lower()
+    
+    default_params = {
+        "temperature": 0,
+        "max_tokens": 2048,
+    }
+    
+    match model_provider:
+        case "azureopenai":
+            print("Using Azure OpenAI")
+            return AzureChatOpenAI(
+                azure_deployment=os.getenv("AZURE_DEPLOYMENT_NAME"),
+                api_version=os.getenv("AZURE_OPENAI_API_VERSION"),
+                **default_params
+            )
+        case "openai":
+            print("Using OpenAI")
+            return ChatOpenAI(
+                model=os.getenv("OPENAI_MODEL"),
+                **default_params
+            )
+        case _:
+            return ChatOpenAI(
+                model=os.getenv("OPENAI_MODEL"),
+                **default_params
+            )
 
 def analyze_product(uploaded_image):
     """Analyze the product using OCR and OpenAI."""
